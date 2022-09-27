@@ -1,0 +1,39 @@
+package Parser.Grammars;
+
+import java.util.Map;
+
+public class OType implements Expression {
+    private String ins;
+    private String op_S;
+    private String machine_S;
+    private int machine_deci;
+    private String machine_hex;
+    private StringBaseConverter sbc;
+
+    public OType(String ins){
+        this.ins = ins;
+        sbc = StringBaseConverter.getInstance();
+    }
+
+    @Override
+    public int eval( Map<String, Expression> binding) {
+        if(ins.equals("noop")){
+      //      System.out.println("noop");
+            op_S  = "111";
+        }
+        else{
+    //        System.out.println("halt");
+            op_S = "110";
+        }
+        machine_S = op_S+"0000000000000000000000";
+        machine_deci = sbc.convertToDeci(machine_S);
+        machine_hex = sbc.convertToHex(machine_deci);
+        return machine_deci;
+    }
+
+    @Override
+    public void prettyPrint(StringBuilder s) {
+        s.append(machine_deci+"("+machine_hex+")"+"\n");
+    }
+    
+}
