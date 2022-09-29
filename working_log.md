@@ -1,4 +1,7 @@
 # format สำหรับบันทึก log | work log format
+กดปุ่มนี้ **ทางขวา** เพื่อแก้ไข
+![image](https://user-images.githubusercontent.com/76035337/193006396-024b3fd8-93e3-4e24-97f0-2f8b167320ea.png)
+
 
 ## Log day - _dd/mm/yy_
 **member** : _member_
