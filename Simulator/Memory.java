@@ -1,5 +1,7 @@
 package Simulator;
 
+import Simulator.SubPart.Address;
+
 public class Memory {
     private int[] memory;
     private Address instrAddr;
@@ -32,8 +34,8 @@ public class Memory {
     }
 
     public void writeData(int wrData){
-        assert MemWrite == 1;
-        memory[memAddr.getValue()] = wrData;
+        if(MemWrite == 1)
+            memory[memAddr.getValue()] = wrData;
     }
 
     public int getInstruction(){
@@ -41,8 +43,10 @@ public class Memory {
     }
 
     public int readData(){
-        assert MemRead == 1;
-        return memory[memAddr.getValue()];
+        if(MemRead == 1) 
+            return memory[memAddr.getValue()];
+        else
+            return 0; 
     }
 
     
