@@ -51,12 +51,12 @@ int main(){
 "            nand        8          8            8           (temp nand temp) = temp \n" + // 11
 "            beq        8          zero          2          if(temp == zero)  \n" + // 11
 "            add        3           3           3           result = result + result\n" + //12
-"            add 		3			3			3			iterator = iterator + iterator
+"            add 	3	    3		3			iterator = iterator + iterator
 "            add        9           9           9           cand = cand + cand  \n" + // 16
-"			nand 		10  		10     		8          plier nand plier \n"+
-"  			 add 		8			6           8"			2'complement bit \n"+
-"            add 		8			6           8			2'plier + 1;
-"			 beq 		"
+"	     nand 	10  	   10     	8          plier nand plier \n"+
+"  	     add 	8	    6           8        	2'complement bit \n"+
+"            add 	8           6           8			2'plier + 1;
+"	     beq 		
 "            jalr         4           2                     
 "increment       .fill         1\n" + // 21
 "zero       .fill         0\n" + // 21
