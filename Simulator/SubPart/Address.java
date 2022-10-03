@@ -1,4 +1,4 @@
-package Simulator;
+package Simulator.SubPart;
 
 public class Address {
     protected int value;
