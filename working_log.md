@@ -87,7 +87,7 @@ _____________________________________________________________________________
     
    https://www.notion.so/Simulator-148735a6d13445bca8770d44e7336231
 
-  ### เริ่ม implement code
+  #### เริ่ม implement code
     - พยายามเริ่มจาก memory ที่รับค่า PC มาเพื่อกำหนดบรรทัด instruction
     - เจอปัญหาในการออกแบบ นั่นคือการกำหนดชนิดของตัวแปรของค่าที่ไปมาในแต่ละส่วน 
     (เช่น จาก instructions แยกเป็น opcode, regA, etc.) หากกำหนด
@@ -111,12 +111,43 @@ _____________________________________________________________________________
 
 ## Log day - 3/10/2565
 
+**member** : Nuttapong
+
+**Time** : ทำช่วงเวลาประมาณ 2.5 ชั่วโมง (13:50 - 14:20, 17:00 - 17:30, 19:30 - 21:00)
+
+  #### start implement Gate.java
+    - สร้าง gate สำหรับใช้ทั้งในวงจรและ alu โดยรวมหลายๆ gate ที่ต้องใช้ และ add, sub สำหรับ
+    ใน ALU ด้วย 
+    - NAND มีความยุ่งยากที่สุดในบรรดา oprerators ขั้นต้น ทดลองแยก int เป็น binaryString 
+    แล้วเช็คทีละ คู่บิท แต่จากความซับซ้อนที่เกินจำเป็น จึงปรับเหลือ นำ input มา and กันก่อน
+    แล้วค่อย not result ทีละบิท
+
+  #### start implement ImmGen.java
+    - เป็นเพียงเสมือนขยาย bit และแทรกการแปลง 2's complement 16 bit -> 32 bit
+
+  #### start implement Control.java
+    - part นี้จะรับ opcode มาแล้ว generate controls ทั้งหมด ตาม opcode
+    - สร้าง function สำหรับ get control ต่างๆ และ function reset สำหรับรีเซ็ท control ทั้งหมด
+
+  #### start implement ALUControl.java
+    - part นี้จะรับ ALUop จาก Control และส่ง ALUcontrol ให้ ALU ทำงานตามที่ต้องการ
+
+  #### start implement ALU.java
+    - part นี้จะรับ ALUControl (ctrl) จาก ALUControl (class) และ คำนวณค่า result และ zero 
+    จาก input ที่ได้รับ โดยเรียกใช้ gate ต่างๆ
+_____________________________________________________________________________
+
+
+## Log day - 3/10/2565
+
 **member** : Thanakun
 
-**Time** : ทำช่วงเวลาประมาณ 5 ชั่วโมง (18:00 - 21:00)
+**Time** : ทำช่วงเวลาประมาณ 3 ชั่วโมง (18:00 - 21:00)
   #### ลองเขียนโปรแกรม Assembly Program เป็น multiplication โดยไม่ใช้ Shift left และ Shift right
     - ต้องทำความเข้าใจ โปรแกรม assembly ในการใช้ instruction ในแต่ละ instruction และผลลัพธ์ที่ควรได้
     - ทำข้อ multiplication เสร็จไปแล้ว 60 % 
   #### ทำความเข้าใจข้อ Combination 
     - ทำความเข้าใจว่า อัลกอริทึมว่ามีการทำงานอย่างไร และออกแบบให้เป็นภาษา asssembly 
 _____________________________________________________________________________
+
+
