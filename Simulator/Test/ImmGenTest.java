@@ -16,11 +16,24 @@ public class ImmGenTest {
 
         int t3 = 0b100000000000000011;
 
-        System.out.println(t1 +  " -> " + imgn.generate(t1));
+        int t4 = -24;
 
-        System.out.println(t2 +  " -> " + imgn.generate(t2));
+        imgn.setInput(t1);
+        imgn.excute();
+        System.out.println(t1 +  " -> " + imgn.getOutput());
 
-        System.out.println(t3 +  " -> " + imgn.generate(t3));
+        imgn.setInput(t2);
+        imgn.excute();
+        System.out.println(t2 +  " -> " + imgn.getOutput());
+
+        imgn.setInput(t3);
+        imgn.excute();
+        System.out.println(t3 +  " -> " + imgn.getOutput());
+
+        imgn.setInput(t4);
+        imgn.excute();
+        System.out.println(Integer.toBinaryString(t4));
+        System.out.println(t4 +  " -> " + imgn.getOutput());
 
 
     }

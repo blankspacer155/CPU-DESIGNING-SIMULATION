@@ -1,7 +1,6 @@
 package Simulator.Test;
 
 import Simulator.Memory;
-import Simulator.SubPart.Address;
 
 public class MemoryTest {
 
@@ -22,21 +21,30 @@ public class MemoryTest {
         mem.setCtrlRead(1);
         mem.setMemAddr(1);
 
+        mem.readData();
+
         System.out.println("ReadMem");
-        System.out.println(mem.readData());
+        System.out.println(mem.getDataFromRead());
 
         
         mem.setCtrlWrite(0);
-        mem.writeData(32);
+        mem.setDataToWrite(32);
+
+        mem.writeData();
+
+        mem.readData();
 
         System.out.println("WriteMem with ctrl 0");
-        System.out.println(mem.readData());
+        System.out.println(mem.getDataFromRead());
 
         mem.setCtrlWrite(1);
-        mem.writeData(32);
+       
+        mem.writeData();
+
+        mem.readData();
 
         System.out.println("WriteMem with ctrl 1");
-        System.out.println(mem.readData());
+        System.out.println(mem.getDataFromRead());
 
     }
     

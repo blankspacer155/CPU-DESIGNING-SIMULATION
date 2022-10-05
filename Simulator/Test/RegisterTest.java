@@ -11,31 +11,39 @@ public class RegisterTest {
         regs.setRegB(1);
 
         System.out.println("regA");
-        System.out.println(regs.readDataA());
+        regs.readDataA();
+        System.out.println(regs.getDataFromReadA());
+
         System.out.println("regB");
-        System.out.println(regs.readDataB());
+        regs.readDataB();
+        System.out.println(regs.getDataFromReadB());
 
         regs.setWrReg(0);
 
         regs.setWriteCtrl(0);
-        regs.WriteData(19);
+        regs.setDataToWrite(19);
+        regs.WriteData();
 
         System.out.println("write regA with ctrl 0");
-        System.out.println(regs.readDataA());
+        regs.readDataA();
+        System.out.println(regs.getDataFromReadA());
 
         regs.setWriteCtrl(1);
-        regs.WriteData(19);
+        regs.WriteData();
 
         System.out.println("write regA with ctrl 1");
-        System.out.println(regs.readDataA());
+        regs.readDataA();
+        System.out.println(regs.getDataFromReadA());
 
 
         regs.setWrReg(1);
         regs.setWriteCtrl(1);
-        regs.WriteData(512);
+        regs.setDataToWrite(512);
+        regs.WriteData();
 
         System.out.println("write regB with ctrl 1");
-        System.out.println(regs.readDataB());
+        regs.readDataB();
+        System.out.println(regs.getDataFromReadB());
 
 
     }
