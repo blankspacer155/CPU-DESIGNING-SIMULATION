@@ -1,49 +1,84 @@
 package Simulator;
 
-import Simulator.SubPart.Address;
-
 public class Registers {
+
+    // initial
     protected int[] registers;
-    protected Address regA;
-    protected Address regB;
-    protected Address wrReg;
+
+    // inputs
+    // --------------------------------------------
+    protected int regA;
+    protected int regB;
+    protected int wrReg;
+    protected int dataToWrite;
+    // --------------------------------------------
+
+
+    // control
+    // --------------------------------------------
     protected int RegWrite;
+    // --------------------------------------------
+
+    // outputs
+    // --------------------------------------------
+    protected int dataFromReadA;
+    protected int dataFromReadB;
+    // --------------------------------------------
 
     public Registers() {
         registers = new int[8];
-        regA = new Address(0);
-        regB = new Address(0);
-        wrReg = new Address(0);
+        regA = 0;
+        regB = 0;
+        wrReg = 0;
+        dataToWrite = 0;
         RegWrite = 0;
     }
 
     public void setRegA(int regA) {
-        this.regA.setValue(regA);;
+        this.regA = regA;
     }
 
     public void setRegB(int regB) {
-        this.regB.setValue(regB);;
+        this.regB = regB;
     }
 
     public void setWrReg(int wrReg) {
-        this.wrReg.setValue(wrReg);;
+        this.wrReg = wrReg;
     }
 
-    public int readDataA(){
-        return registers[regA.getValue()];
+    public void readDataA(){
+        dataFromReadA =  registers[regA];
     }
     
-    public int readDataB(){
-        return registers[regB.getValue()];
+    public void readDataB(){
+        dataFromReadB =  registers[regB];
+    }
+
+    public int getDataFromReadA() {
+        return dataFromReadA;
+    }
+
+    public int getDataFromReadB() {
+        return dataFromReadB;
     }
 
     public void setWriteCtrl(int ctrl){
         this.RegWrite = ctrl;
     }
 
-    public void WriteData(int wrData){
-        if(RegWrite == 1)
-            registers[wrReg.getValue()] = wrData;
+    public void setDataToWrite(int dataToWrite) {
+        this.dataToWrite = dataToWrite;
     }
+
+    public void WriteData(){
+        if(RegWrite == 1)
+            registers[wrReg] = dataToWrite;
+    }
+
+    public int[] getRegisters() {
+        return registers;
+    } 
+
+    
     
 }

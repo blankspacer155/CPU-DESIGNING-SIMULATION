@@ -3,9 +3,27 @@ package Simulator;
 import Simulator.SubPart.Gate;
 
 public class ALU {
+
+
+    // input
+    // --------------------------------------------
+    protected int in1;
+    protected int in2;
+    // --------------------------------------------
+
+
+    // control
+    // --------------------------------------------
+    protected int aluCtrl;
+    // --------------------------------------------
+
+
+    // outputs
+    // --------------------------------------------
     protected int zero;
     protected int result;
-    protected int aluCtrl;
+    // --------------------------------------------
+
 
     protected Gate gate;
 
@@ -16,6 +34,8 @@ public class ALU {
     }
 
     public void reset(){
+        in1 = 0;
+        in2 = 0;
         zero = 0;
         result = 0;
         aluCtrl = 0b1111;
@@ -25,27 +45,39 @@ public class ALU {
         aluCtrl = ctrl;
     }
 
-    public void excute(int in1, int in2){
+    public void setInput(int in1, int in2){
+        this.in1 = in1;
+        this.in2 = in2;
+    }
+
+    public void excute(){
+        gate.setControl(aluCtrl);
+        gate.setInput(in1, in2);
         switch (aluCtrl) {
             case 0b0000:
-                   result = gate.AND(in1, in2); 
+                    gate.AND();
+                    result = gate.getResult(); 
                 break;
 
             case 0b0001:
-                    result = gate.OR(in1, in2); 
+                    gate.OR();
+                    result = gate.getResult(); 
                 break;
 
             case 0b0010:
-                    result = gate.ADD(in1, in2); 
+                    gate.ADD();
+                    result = gate.getResult(); 
                 break;
 
             case 0b0110:
-                    result = gate.SUBTRACT(in1, in2);
-                    zero = result == 0 ? 1 : 0;
+                    gate.SUBTRACT();
+                    result = gate.getResult(); 
+                    zero = gate.getZero();
                 break;  
 
             case 0b0011:
-                    result = gate.NAND(in1, in2); 
+                    gate.NAND();
+                    result = gate.getResult(); 
                 break;        
                 
             case 0b1111:

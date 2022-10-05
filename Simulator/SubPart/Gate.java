@@ -1,21 +1,67 @@
 package Simulator.SubPart;
 
 public class Gate {
-    public int MUX(int zero, int one, int ctrl){
-        return ctrl == 1 ? one : zero;
+
+    // input
+    // --------------------------------------------
+    protected int in1;
+    protected int in2;
+    // --------------------------------------------
+
+    // control
+    // --------------------------------------------
+    protected int control;
+    // --------------------------------------------
+
+    // outputs
+    // --------------------------------------------
+    protected int result;
+    protected int zero;
+    // --------------------------------------------
+
+    public Gate(){
+        in1 = 0;
+        in2 = 0;
+
+        control = 0;
+
+        result = 0;
+        zero = 0;
     }
 
-    public int AND(int in1, int in2){
-        return in1 & in2;
+
+    public void setInput(int in1, int in2) {
+        this.in1 = in1;
+        this.in2 = in2;
     }
 
-    public int OR(int in1, int in2){
-        return in1 | in2;
+    public void setControl(int control) {
+        this.control = control;
     }
 
-    public int NAND(int in1, int in2){
+    public int getResult() {
+        return result;
+    }
 
-        int result = in1 & in2;
+    public int getZero() {
+        return zero;
+    }
+
+    public void MUX(){
+        result = control == 1 ? in2 : in1;
+    }
+
+    public void AND(){
+        result = in1 & in2;
+    }
+
+    public void OR(){
+        result = in1 | in2;
+    }
+
+    public void NAND(){
+
+        result = in1 & in2;
 
         for(int i = 0; i <= 31; i ++){
             if(((result >> (i)) & 1) == 1){
@@ -25,16 +71,16 @@ public class Gate {
             }
             
         }
-
-        return result; 
+ 
     }
 
-    public int ADD(int in1, int in2){
-        return in1 + in2;
+    public void ADD(){
+        result = in1 + in2;
     }
 
-    public int SUBTRACT(int in1, int in2){
-        return in1 - in2;
+    public void SUBTRACT(){
+        result = in1 - in2;
+        zero = result == 0 ? 1 : 0;
     }
 
     public static void main(String[] args){

@@ -2,7 +2,16 @@ package Simulator;
 
 public class ALUControl {
     
+    // input
+    // --------------------------------------------
+    protected int aluop;
+    // --------------------------------------------
+
+
+    // outputs
+    // --------------------------------------------
     protected int aluCtrl;
+    // --------------------------------------------
 
     public ALUControl(){
         reset();
@@ -12,27 +21,45 @@ public class ALUControl {
         aluCtrl = 0;  
     }
 
-    public int getCtrl(int aluop) {
+    public void setInput(int aluop){
+        this.aluop = aluop;
+    }
+
+    public void excuteCtrl() {
         switch (aluop) {
             case 0b000:
-                return 0b0010;
+                aluCtrl = 0b0010;
+                break;
             case 0b001:
-                return 0b0011;
+                aluCtrl = 0b0011;
+                break;
             case 0b010:
-                return 0b0010;
+                aluCtrl = 0b0010;
+                break;
             case 0b011:
-                return 0b0010;
+                aluCtrl = 0b0010;
+                break;
             case 0b100:
-                return 0b0110;
+                aluCtrl = 0b0110;
+                break;
             case 0b101:
-                return 0b1111;
+                aluCtrl = 0b1111;
+                break;
             case 0b110:
-                return 0b1111;
+                aluCtrl = 0b1111;
+                break;
             case 0b111:
-                return 0b1111;
+                aluCtrl = 0b1111;
+                break;
             default:
-                return 0b1111;
+                aluCtrl = 0b1111;
+                break;
         }
+    }
+
+    
+    public int getAluCtrl() {
+        return aluCtrl;
     }
 
 }

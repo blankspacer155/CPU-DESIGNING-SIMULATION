@@ -1,6 +1,15 @@
 package Simulator;
 
 public class Control {
+
+    // input
+    // --------------------------------------------
+    protected int opcode;
+    // --------------------------------------------
+
+
+    // outputs
+    // --------------------------------------------
     protected int MemWrite;
     protected int MemRead;
     protected int MemToReg;
@@ -10,12 +19,16 @@ public class Control {
     protected int ALUop;
     protected int Branch;
     protected int Jump;
+    // --------------------------------------------
+
 
     public Control() {
+        opcode = 0;
         reset();
     }
 
     public void reset(){
+        
         MemWrite = 0;
         MemRead = 0;
         MemToReg = 0;
@@ -27,7 +40,12 @@ public class Control {
         Jump = 0;
     }
 
-    public void setControl(int opcode){
+    public void setopcode(int opcd){
+        this.opcode = opcd;
+    }
+
+    public void excuteControl(){  
+        reset();
         ALUop = opcode;
         switch (opcode) {
             case 0b000:         // AND
@@ -44,8 +62,7 @@ public class Control {
                 MemRead = 1;
                 MemToReg = 1;    
                 ALUsrc = 1;
-                RegWr = 1;
-                RegDst = 1;   
+                RegWr = 1;  
 
                 break;
             case 0b011:         // SW
