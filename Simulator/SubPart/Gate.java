@@ -67,9 +67,8 @@ public class Gate {
             if(((result >> (i)) & 1) == 1){
                 result = result - (1 << i);
             }else{
-                result = result | (1 << i);
-            }
-            
+                result = result + (1 << i);
+            } 
         }
  
     }
