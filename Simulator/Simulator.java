@@ -62,12 +62,17 @@ public class Simulator {
                 // print memory before run whole program
                 simPr.printMemory(memory.getMemory());
             } 
-
-            simPr.printStage(PC, memory.getMemory(), registers.getRegisters());
             
             memory.setInstrAddr(PC);
             
             instrReg.setInstr(memory.getInstruction());
+
+            if(instrReg.instr24_22 == 0b111){
+                PC++;
+                continue;
+            }
+
+            simPr.printStage(PC, memory.getMemory(), registers.getRegisters());
 
             immGen.setInput(memory.getInstruction());
             immGen.excute();
