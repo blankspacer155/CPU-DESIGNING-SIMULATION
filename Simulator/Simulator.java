@@ -105,7 +105,7 @@ public class Simulator {
             gates[6].setInput(PC, 1);
             gates[6].ADD();
 
-            gates[7].setInput(PC, immGen.getOutput());
+            gates[7].setInput(gates[6].getResult(), immGen.getOutput());
             gates[7].ADD();
 
             gates[3].setControl(control.getJump());
