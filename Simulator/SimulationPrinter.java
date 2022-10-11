@@ -9,7 +9,9 @@ public class SimulationPrinter {
     public SimulationPrinter(){
         try {
             FileWriter myWriter = new FileWriter("output.txt", false);
+            FileWriter pcWriter = new FileWriter("output_PC.txt", false);
             myWriter.close();
+            pcWriter.close();
 
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -63,11 +65,13 @@ public class SimulationPrinter {
 
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
+            FileWriter pcWriter = new FileWriter("output_PC.txt", true);
 
             myWriter.write("\n");
             myWriter.write("@@@\n");
             myWriter.write("state:\n");
             myWriter.write("      pc " + PC + "\n");
+            pcWriter.write("      pc " + PC + "\n");
 
             myWriter.write("      memory:\n");
             for (int i = 0; i < memory.length; i++) {
@@ -81,7 +85,7 @@ public class SimulationPrinter {
     
             myWriter.write("end state\n");
             
-
+            pcWriter.close();
             myWriter.close();
         } catch (Exception e) {
             System.out.println("An error occurred.");
@@ -99,12 +103,16 @@ public class SimulationPrinter {
 
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
+            FileWriter pcWriter = new FileWriter("output_PC.txt", true);
 
             myWriter.write("machine halted\n");
             myWriter.write("total of " + counter + " instructions excuted\n");
             myWriter.write("final stage of program\n");
+            pcWriter.write("machine halted\n");
+            pcWriter.write("total of " + counter + " instructions excuted\n");
+            pcWriter.write("final stage of program\n");
             
-
+            pcWriter.close();
             myWriter.close();
         } catch (Exception e) {
             System.out.println("An error occurred.");
