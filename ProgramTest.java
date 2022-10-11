@@ -23,13 +23,9 @@ public class ProgramTest {
         "      jalr 4 7       call com ; $7 = return address \n" +  
         "comb  beq  2 0 dog      if (r == 0 ) call c \n" + 
         "      lw   0 6 pos1   $6 = 1  \n" + 
-        "      sw   5 7 stack  stored $4 in stack \n" +
-        "      add  5 6 5      increment stack pointer \n " +
         "      sw   5 1 stack  stored $1 in stack \n" + 
         "      add  5 6 5      increment stack pointer \n "+
         "      sw   5 2 stack  stored $2 in stack \n" +
-        "      add  5 6 5      increment stack pointer \n" +
-        "      sw   5 3 stack  stored $3 in stack \n" +
         "      add  5 6 5      increment stack pointer \n" +
         "      beq  1 2 coal    if ( n == r ) call cc \n" + 
         "      lw   0 6 neg1   $6 = -1 \n" +
@@ -38,7 +34,6 @@ public class ProgramTest {
         "      sw   5 6 stack \n" + 
         "      lw   0 6 pos1 \n " +
         "      add  5 6 5    \n " +
-        "      lw   0 4 com  \n " + 
         "      beq  0 0 comb     jump to comb \n" +
         "coat  lw   0 6 neg1   \n" + 
         "      add  2 6 2      \n" +
@@ -49,7 +44,6 @@ public class ProgramTest {
         "      sw   5 6 stack  \n" +
         "      lw   0 6 pos1   \n" +
         "      add  5 6 5      \n" +
-        "      lw   0 4 com    \n" +
         "      beq  0 0 comb    \n" + 
         "third lw   0 6 pos1   \n" +
         "      add  3 6 3      \n" +
@@ -75,7 +69,7 @@ public class ProgramTest {
         "conti  .fill coat \n"+ 
         "tree .fill third \n"+ 
         "dog  .fill cat   \n" +
-        "stack .fill 0 \n";  
+        "stack .fill 0 \n";
 
         int[] Memory = new int[100];
         Parser p = new Parser(src, bindings,Memory);
