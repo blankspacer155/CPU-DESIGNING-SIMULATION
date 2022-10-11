@@ -11,6 +11,11 @@ public class ProgramTest {
 
     public static void main(String[] args) {
         Map<String,Expression> bindings = new LinkedHashMap<>();
+        
+        
+        
+        
+        
         String src=
         "      lw   0 1 n     $1 = 3  \n" +
         "      lw   0 2 r     $2 = 2  \n" +
@@ -62,7 +67,6 @@ public class ProgramTest {
         "      add  5 6 5        \n" + 
         "      lw   5 4 stack    \n" +
         "com .fill comb \n" +
-        "stack .fill 0 \n" + 
         "n   .fill 3 \n" +
         "r   .fill 2 \n"+
         "neg1 .fill -1 \n" + 
@@ -70,9 +74,10 @@ public class ProgramTest {
         "coal .fill coco \n" + 
         "conti  .fill coat \n"+ 
         "tree .fill third \n"+ 
-        "dog  .fill cat   \n";  
+        "dog  .fill cat   \n" +
+        "stack .fill 0 \n";  
 
-        int[] Memory = new int[59];
+        int[] Memory = new int[100];
         Parser p = new Parser(src, bindings,Memory);
         p.evauateAll();
 
