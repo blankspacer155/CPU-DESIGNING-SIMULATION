@@ -20,7 +20,7 @@ public class SimulationPrinter {
     }
     
     
-    public void printMemory(int[] memory){
+    public void printMemory(int[] memory, int numMemory){
 
         // for (int i = 0; i < memory.length; i++) {
         //     System.out.println("memory[" + i + "]=" + memory[i]);
@@ -32,7 +32,7 @@ public class SimulationPrinter {
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
 
-            for (int i = 0; i < memory.length; i++) {
+            for (int i = 0; i < numMemory; i++) {
                 myWriter.write("memory[" + i + "]=" + memory[i] + "\n");     
             }
             myWriter.write("\n");
@@ -45,7 +45,7 @@ public class SimulationPrinter {
         
     }
 
-    public void printStage(int PC, int[] memory, int[] registers){
+    public void printStage(int PC, int[] memory, int[] registers, int numMemory){
         // System.out.println("@@@");
         // System.out.println("state:");
         // System.out.println("      pc " + PC);
@@ -74,7 +74,7 @@ public class SimulationPrinter {
             pcWriter.write("      pc " + PC + "\n");
 
             myWriter.write("      memory:\n");
-            for (int i = 0; i < memory.length; i++) {
+            for (int i = 0; i < numMemory; i++) {
                 myWriter.write("             mem[ " + i + " ] " + memory[i] + "\n");
             }
     

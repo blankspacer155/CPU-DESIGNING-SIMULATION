@@ -4,6 +4,7 @@ public class Memory {
 
     // initial
     private int[] memory;
+    private int numMemory;
 
     // inputs
     // --------------------------------------------
@@ -24,7 +25,7 @@ public class Memory {
     private int dataFromRead;
     // --------------------------------------------
 
-    public Memory(int[] memory) {
+    public Memory(int[] memory, int numMemory) {
         this.memory = memory;
         this.instrAddr = 0;
         this.memAddr = 0;
@@ -32,6 +33,7 @@ public class Memory {
         MemRead = 0;
         dataFromRead = 0;
         instrucion = 0;
+        this.numMemory = numMemory;
     }
 
 
@@ -80,17 +82,10 @@ public class Memory {
         return memory;
     }
 
-    
 
-    
-    
-   
-
-    
-    
-
-    
-
+    public int getNumMemory() {
+        return numMemory;
+    }
     
 
 }
