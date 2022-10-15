@@ -8,8 +8,8 @@ public class SimulationPrinter {
 
     public SimulationPrinter(){
         try {
-            FileWriter myWriter = new FileWriter("output.txt", false);
-            FileWriter pcWriter = new FileWriter("output_PC.txt", false);
+            FileWriter myWriter = new FileWriter("output.txt", false);          // clear output
+            FileWriter pcWriter = new FileWriter("output_PC.txt", false);       // clear output_PC 
             myWriter.close();
             pcWriter.close();
 
@@ -19,15 +19,12 @@ public class SimulationPrinter {
         }
     }
     
-    
+    /** print only memory
+     * 
+     * @param memory array of memories
+     * @param numMemory number of line of memory
+     */
     public void printMemory(int[] memory, int numMemory){
-
-        // for (int i = 0; i < memory.length; i++) {
-        //     System.out.println("memory[" + i + "]=" + memory[i]);
-        // }
-
-        // System.out.println();
-        // System.out.println();
 
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
@@ -35,6 +32,7 @@ public class SimulationPrinter {
             for (int i = 0; i < numMemory; i++) {
                 myWriter.write("memory[" + i + "]=" + memory[i] + "\n");     
             }
+
             myWriter.write("\n");
 
             myWriter.close();
@@ -45,23 +43,16 @@ public class SimulationPrinter {
         
     }
 
+
+
+    /** print whole of single stage included registers and memories
+     * 
+     * @param PC PC of this stage
+     * @param memory array of memories
+     * @param registers array of registers
+     * @param numMemory number of line of used memory
+     */
     public void printStage(int PC, int[] memory, int[] registers, int numMemory){
-        // System.out.println("@@@");
-        // System.out.println("state:");
-        // System.out.println("      pc " + PC);
-
-        // System.out.println("      memory:");
-        // for (int i = 0; i < memory.length; i++) {
-        //     System.out.println("             mem[ " + i + " ] " + memory[i]);
-        // }
-
-        // System.out.println("      registers:");
-        // for (int i = 0; i < registers.length; i++) {
-        //     System.out.println("             reg[ " + i + " ] " + registers[i]);
-        // }
-
-        // System.out.println("end state");
-        // System.out.println();
 
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
@@ -94,12 +85,12 @@ public class SimulationPrinter {
 
     }
 
-    public void printEndOfProgram(int counter){
 
-        // System.out.println("machine halted");
-        // System.out.println("total of " + counter + " instructions excuted");
-        // System.out.println("final stage of program");
-        // System.out.println();
+    /** print program conclusion
+     * 
+     * @param counter number of instructions
+     */
+    public void printEndOfProgram(int counter){
 
         try {
             FileWriter myWriter = new FileWriter("output.txt", true);
@@ -120,34 +111,6 @@ public class SimulationPrinter {
         }
 
     }
-
-    public void printMemoryBinary(int[] memory){
-
-        for (int i = 0; i < memory.length; i++) {
-            System.out.println("memory[" + i + "]=" + Integer.toBinaryString(memory[i]));
-        }
-    }
-
-    public void printStageBinary(int PC, int[] memory, int[] registers){
-        System.out.println("@@@");
-        System.out.println("state:");
-        System.out.println("      pc " + PC);
-
-        System.out.println("      memory:");
-        for (int i = 0; i < memory.length; i++) {
-            System.out.println("             mem[" + i + "] " + Integer.toBinaryString(memory[i]));
-        }
-
-        System.out.println("      registers:");
-        for (int i = 0; i < registers.length; i++) {
-            System.out.println("             reg[" + i + "] " + registers[i]);
-        }
-
-        System.out.println(" end state");
-        System.out.println();
-
-    }
-
 
 
 }

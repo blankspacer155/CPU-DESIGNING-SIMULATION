@@ -9,7 +9,7 @@ public class ControlTest {
         Control c = new Control();
 
         c.setopcode(0b010);      // LW
-        c.excuteControl();
+        c.executeControl();
 
         System.out.println("LW");
         System.out.println("MemWrite: " + c.getMemWrite());
@@ -25,7 +25,7 @@ public class ControlTest {
         c.reset();
         
         c.setopcode(0b101);
-        c.excuteControl();
+        c.executeControl();
 
         System.out.println("JALR");
         System.out.println("MemWrite: " + c.getMemWrite());

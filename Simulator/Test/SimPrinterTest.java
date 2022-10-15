@@ -9,9 +9,9 @@ public class SimPrinterTest {
 
         int[] mc = {8454151, 9043971 , 655361 };
 
-        sp.printMemory(mc);
+        sp.printMemory(mc,3);
 
-        sp.printStage(0,mc, new int[7]);
+        sp.printStage(0,mc, new int[7],3);
     }
 
 }

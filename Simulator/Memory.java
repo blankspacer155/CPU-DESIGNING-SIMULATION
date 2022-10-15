@@ -37,6 +37,7 @@ public class Memory {
     }
 
 
+    // setter part
     public void setInstrAddr(int PC) {
         this.instrAddr = PC;
         instrucion = memory[instrAddr];
@@ -54,22 +55,15 @@ public class Memory {
         this.MemRead = ctrl;
     }
 
-
-    public int getInstruction(){
-        return instrucion;
+    public void setDataToWrite(int wrData){
+        this.writeData = wrData;
     }
 
+    
+    // executing part
     public void readData(){
         if(MemRead == 1) 
             dataFromRead =  memory[memAddr];
-    }
-
-    public int getDataFromRead(){
-        return dataFromRead;
-    }
-
-    public void setDataToWrite(int wrData){
-        this.writeData = wrData;
     }
 
     public void writeData(){
@@ -78,10 +72,18 @@ public class Memory {
     }
 
 
+    // getter part
+    public int getDataFromRead(){
+        return dataFromRead;
+    }
+
+    public int getInstruction(){
+        return instrucion;
+    }
+
     public int[] getMemory() {
         return memory;
     }
-
 
     public int getNumMemory() {
         return numMemory;

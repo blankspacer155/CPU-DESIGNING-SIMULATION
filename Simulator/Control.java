@@ -27,6 +27,9 @@ public class Control {
         reset();
     }
 
+    /** reset all params
+     * 
+     */
     public void reset(){
         
         MemWrite = 0;
@@ -40,49 +43,58 @@ public class Control {
         Jump = 0;
     }
 
+
+    /** set opcode
+     * 
+     * @param opcd opcode
+     */
     public void setopcode(int opcd){
         this.opcode = opcd;
     }
 
-    public void excuteControl(){  
-        reset();
-        ALUop = opcode;
+
+    /** execute all controls from opcode
+     * 
+     */
+    public void executeControl(){  
+        reset();                        // reset all controls to 0
+        ALUop = opcode;                 // since we use ALUop same as opcode
         switch (opcode) {
-            case 0b000:         // AND
+            case 0b000:                 // AND
                 RegWr = 1;
                 RegDst = 1;
                 break;
 
-            case 0b001:         // NAND
+            case 0b001:                 // NAND
                 RegWr = 1;
                 RegDst = 1;    
 
                 break;
-            case 0b010:         // LW
+            case 0b010:                 // LW
                 MemRead = 1;
                 MemToReg = 1;    
                 ALUsrc = 1;
                 RegWr = 1;  
 
                 break;
-            case 0b011:         // SW
+            case 0b011:                 // SW
                 MemWrite = 1;
                 ALUsrc = 1;
 
                 break;
-            case 0b100:         // BEQ
+            case 0b100:                 // BEQ
                 Branch = 1;    
 
                 break;
-            case 0b101:         // JALR
+            case 0b101:                 // JALR
                 Jump = 1;
                 RegWr = 1;    
 
                 break;
-            case 0b110:         // HALT
+            case 0b110:                 // HALT
                 
                 break;
-            case 0b111:         // NOOP
+            case 0b111:                 // NOOP
                 
                 break;
             default:
@@ -90,6 +102,8 @@ public class Control {
         }
     }
 
+
+    // getter part
     public int getMemWrite() {
         return MemWrite;
     }

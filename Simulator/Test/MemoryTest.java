@@ -9,7 +9,7 @@ public class MemoryTest {
         t[0] = 8454151;
         t[1] = 29;
         
-        Memory mem = new Memory(t);
+        Memory mem = new Memory(t,2);
 
         mem.setInstrAddr(0);
 

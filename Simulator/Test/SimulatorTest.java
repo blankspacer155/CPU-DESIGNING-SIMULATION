@@ -12,14 +12,14 @@ public class SimulatorTest {
             9043971,
             655361,
             16842754,
-            16842750,
+            16842749,
             29360128,
             25165824,
             5,
             -1,
             2
         };
-        sim.setMachineCode(machcode);
+        sim.setMachineCode(machcode, 10);
         sim.run();
 
     }
