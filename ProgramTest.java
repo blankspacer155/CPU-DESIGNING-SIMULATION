@@ -72,6 +72,9 @@ public class ProgramTest {
         "stack .fill 0 \n";
 
         int[] Memory = new int[100];
+        int numSrcCode = src.split("\n").length;
+
+
         Parser p = new Parser(src, bindings,Memory);
         p.evauateAll();
 
@@ -83,7 +86,7 @@ public class ProgramTest {
         // }
 
         Simulator sim = new Simulator();
-        sim.setMachineCode(Memory);
+        sim.setMachineCode(Memory, numSrcCode);
         sim.run();
 
 

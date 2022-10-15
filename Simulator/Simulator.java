@@ -50,8 +50,8 @@ public class Simulator {
         simPr = new SimulationPrinter();
     }
 
-    public void setMachineCode(int[] machineCode){
-        memory = new Memory(machineCode);
+    public void setMachineCode(int[] machineCode, int numMemory){
+        memory = new Memory(machineCode, numMemory);
     }
 
     public void run(){
@@ -60,7 +60,7 @@ public class Simulator {
             
             if(counter == 0){
                 // print memory before run whole program
-                simPr.printMemory(memory.getMemory());
+                simPr.printMemory(memory.getMemory(), memory.getNumMemory() + registers.getStackPointerValue());
             } 
             
             memory.setInstrAddr(PC);
@@ -72,7 +72,7 @@ public class Simulator {
                 continue;
             }
 
-            simPr.printStage(PC, memory.getMemory(), registers.getRegisters());
+            simPr.printStage(PC, memory.getMemory(), registers.getRegisters(), memory.getNumMemory() + registers.getStackPointerValue());
 
             immGen.setInput(memory.getInstruction());
             immGen.excute();
@@ -150,7 +150,7 @@ public class Simulator {
         }
 
         simPr.printEndOfProgram(counter);
-        simPr.printStage(PC, memory.getMemory(), registers.getRegisters());
+        simPr.printStage(PC, memory.getMemory(), registers.getRegisters(), memory.getNumMemory() + registers.getStackPointerValue());
 
     }
 

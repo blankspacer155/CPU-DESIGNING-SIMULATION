@@ -79,6 +79,8 @@ public class Registers {
         return registers;
     } 
 
-    
+    public int getStackPointerValue() {
+        return registers[5];
+    } 
     
 }
