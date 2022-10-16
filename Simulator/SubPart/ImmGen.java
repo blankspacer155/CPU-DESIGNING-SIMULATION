@@ -22,7 +22,7 @@ public class ImmGen {
      */
     public void excute(){
         if (((input >> 15) & 1) == 1){                  // if input is 2's complement negative
-            input &= 0b1111111111111111;                // get 16 bits input
+            output = input & 0b1111111111111111;                // get 16 bits input
                              
             for(int i = 0; i <= 15; i ++){              // 16 bits NOT (flips input bits)
                 if(((output >> (i)) & 1) == 1){
