@@ -21,7 +21,7 @@ public class ProgramTest {
         "       lw 0 7 exponent \n" +
         "       lw 0 2 sign \n" +
         "       lw 0 0 neg1 \n" +
-        "       lw 0 4 one1  \n" +
+        "       lw 0 4 one  \n" +
         "done   halt  \n"+
 
 
