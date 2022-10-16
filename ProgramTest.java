@@ -21,11 +21,11 @@ public class ProgramTest {
         "       lw 0 7 exponent \n" +
         "       lw 0 2 sign \n" +
         "       lw 0 0 neg1 \n" +
-        "       lw 0 4 one  \n" +
+        "       lw 0 4 one1  \n" +
         "done   halt  \n"+
 
 
-        "one1 .fill 1 \n"+
+        "one .fill 1 \n"+
         "base .fill 4 \n"+
         "exponent .fill 3 \n"+
         "neg1 .fill -1 \n" +
