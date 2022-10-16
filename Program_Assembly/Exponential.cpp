@@ -1,5 +1,5 @@
 /*Aseembly Exponential
-        "       lw 0 6 base $6 = 4\n" +
+        "       lw 0 6 base \n" +
         "       lw 0 7 exponent \n" +
         "       lw 0 2 sing \n" +
         "       lw 0 0 neg1 \n" +
@@ -24,7 +24,6 @@
         "       beq 0 0 2 end \n" +
         "done1  lw 0 1 base set answer = base \n" +
         "done   halt  \n"+
-        
         "base .fill 4 \n"+
         "exponent .fill 3 \n"+
         "one .fill 1 \n"+
