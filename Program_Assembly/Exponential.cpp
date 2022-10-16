@@ -3,7 +3,7 @@
         "       lw 0 7 exponent \n" +
         "       lw 0 2 sing \n" +
         "       lw 0 0 neg1 \n" +
-        "       lw 0 4 one ($4)temp1 = 1" +
+        "       lw 0 4 one ($4)temp1 = 1 \n" +
         "       beq 4 7 done1 if(exponent == 1) \n" +
         "       beq 0 7 done2 if(exponent == 0) \n" +
         "       lw 0 1 base answer = base \n" +
@@ -29,7 +29,7 @@
         "exponent .fill 3 \n"+
         "one .fill 1 \n"+
         "neg1 .fill -1 \n" +
-        "sign .fill 1073741824 " ;                    
+        "sign .fill 1073741824 \n" ;                    
  */
 
 
