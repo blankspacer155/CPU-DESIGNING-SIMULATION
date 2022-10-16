@@ -1,11 +1,11 @@
 /*Aseembly Exponential
         "       lw 0 6 base \n" +
         "       lw 0 7 exponent \n" +
-        "       lw 0 2 sing \n" +
+        "       lw 0 2 sign \n" +
         "       lw 0 0 neg1 \n" +
-        "       lw 0 4 one ($4)temp1 = 1 \n" +
-        "       beq 4 7 done1 if(exponent == 1) \n" +
-        "       beq 0 7 done2 if(exponent == 0) \n" +
+        "       lw 0 4 one temp1 = 1 \n" +
+        "       beq 4 7 cat if(exponent == 1) \n" +
+        "       beq 0 7 dog if(exponent == 0) \n" +
         "       lw 0 1 base answer = base \n" +
         "expo   beq 7 4 done if(exponent == 1) end program \n" +
         "       add 7 7 0 exponent = exponent - 1 \n" +
@@ -20,9 +20,9 @@
         "       beq  2 3  2   if(iterator == sign) go to exit \n"+
         "       beq  0 0  mul   jump to multiplication \n" + 
         "       beq 0 0 expo jump to Exponention \n" +
-        "done2  lw 0 1 one set answer = 1 \n" +
-        "       beq 0 0 2 end \n" +
-        "done1  lw 0 1 base set answer = base \n" +
+        "dog  lw 0 1 one set answer = 1 \n" +
+        "       beq 0 0 done end \n" +
+        "cat  lw 0 1 base set answer = base \n" +
         "done   halt  \n"+
         "base .fill 4 \n"+
         "exponent .fill 3 \n"+
