@@ -63,8 +63,8 @@ public class Simulator {
 
     public void run(){
 
-        for (int i = 0; i < 100 && !instrReg.isHalt &&
-             PC < memory.getMemory().length && PC >= 0 ; i++) {                 // only loops for 100 times , can increse loop times later
+        for (int i = 0; i < 500 && !instrReg.isHalt &&
+             PC < memory.getMemory().length && PC >= 0 ; i++) {                 // only loops for 500 times , can increse loop times later
                                                                                 // (avoid run too much if it has bug about halting)
             
             if(counter == 0)                                                    // print memory before run whole program
