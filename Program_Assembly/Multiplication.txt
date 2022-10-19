@@ -1,22 +1,21 @@
-
-    lw   0 3 one iterator = 1
-    lw   0 2 sign $2 = 1073741824   
-    lw   0 6 mcand   $6 = mcand   
-    lw   0 7 mplier $7 = mplier  
-mul nand 7  3  5 (plier nand iterator) = temp  
-    nand 5 5  5  (temp nand temp) = temp  
-    beq  0 5 2  if(temp == zero) go to L1  
-    add  1 6 1  result = result + cand 
-    add  3 3  3  iterator = iterator + iterator 
-    add  6 6  6    cand = cand + cand   
-    beq  2 3  2   if(iterator == sign) go to exit 
-    beq  0 0  mul   jump to multiplication  
-    noop          
-    halt  
+    lw  0 3 one iterator = 1
+    lw   0 2 sign $2 = 1073741824 
+    lw   0 6 mcand   $6 = mcand 
+    lw   0 7 mplier $7 = mplier 
+mul nand 7  3  5 (plier nand iterator) = temp
+    nand 5 5  5  (temp nand temp) = temp
+    beq  0 5 cat  if(temp == zero) go to L1
+    add  1 6 1  result = result + cand
+cat add  3 3  3  iterator = iterator + iterator 
+    add  6 6  6    cand = cand + cand 
+    beq  2 3  done   if(iterator == sign) go to exit 
+    beq  0 0  mul   jump to multiplication
+    noop 
+done  halt end of program  
 one .fill 1 
-mcand  .fill 32766  
-mplier .fill 10383  
-sign .fill 1073741824                      
+mcand  .fill 32766
+mplier .fill 10383 
+sign .fill 1073741824        
 
 
 
