@@ -1,5 +1,6 @@
 package Parser;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,12 +20,12 @@ public class Parser {
     private LinkedHashSet<String> instruction_set;
     private int[] Memory;
     
-    public Parser(String src,Map<String,Expression> bindings,int[] Memory){
+    public Parser(String src,int[] Memory){
         PC=0;//PC start at 0
         String[] ins = {"noop","halt","jalr","add","nand","lw","sw","beq"};
         instruction_set = new LinkedHashSet<>(Arrays.asList(ins));
         this.tkz = new Tokenizer(src);
-        this.bindings = bindings;
+        bindings = new LinkedHashMap<>();
         grammarFactory = GrammarFactory.getInstance();
         ASTtree = new LinkedList<>();
         this.Memory = Memory;

@@ -10,7 +10,7 @@ import Parser.Parser;
 public class ProgramTest {
 
     public static void main(String[] args) {
-        Map<String,Expression> bindings = new LinkedHashMap<>();
+      
         
         
         
@@ -59,7 +59,7 @@ public class ProgramTest {
         int numSrcCode = src.split("\n").length;
 
 
-        Parser p = new Parser(src, bindings,Memory);
+        Parser p = new Parser(src,Memory);
         p.evauateAll();
 
          System.out.println( p.prettyPrintAll());

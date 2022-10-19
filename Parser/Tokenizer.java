@@ -1,4 +1,8 @@
 package Parser;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class Tokenizer implements Token {
@@ -8,12 +12,32 @@ public class Tokenizer implements Token {
     private int field_count;
     private int field_limit;
 
-    public Tokenizer(String src){
-        this.src = src;
+    public Tokenizer(String file_name){
+        this.src = fileToString(file_name);
         pos = 0;
         field_limit = 2; //  default reserve for label and ins
         field_count = 0;
         computeNext();
+    }
+
+    private String fileToString(String file_name){
+        try(BufferedReader reader = new BufferedReader(new FileReader(file_name))){
+            StringBuilder content = new StringBuilder();
+            String line;
+    
+            while ((line = reader.readLine()) != null) {
+                 content.append(line);
+                 content.append("\n");
+           }
+
+    return content.toString();
+        }
+        catch(IOException err){
+            System.out.println(err);
+             return "";
+        }
+       
+
     }
 
     private void computeNext(){

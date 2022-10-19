@@ -1,0 +1,53 @@
+      lw   0 1 n     $1 = 3   
+      lw   0 2 r     $2 = 2   
+      lw   0 4 com   save $4 = combination  
+      jalr 4 7       call com ; $7 = return address    
+comb  beq  2 0 dog      if (r == 0 ) call c   
+      lw   0 6 pos1   $6 = 1    
+      sw   5 1 stack  stored $1 in stack   
+      add  5 6 5      increment stack pointer  
+      sw   5 2 stack  stored $2 in stack  
+      add  5 6 5      increment stack pointer  
+      beq  1 2 coal    if ( n == r ) call cc   
+      lw   0 6 neg1   $6 = -1  
+      add  1 6 1      $1 = $1 -1  (n=n-1)  
+      lw   0 6 conti   
+      sw   5 6 stack   
+      lw   0 6 pos1   
+      add  5 6 5      
+      beq  0 0 comb     jump to comb  
+coat  lw   0 6 neg1     
+      add  2 6 2       
+      lw   0 6 pos1    
+      add  3 6 3       
+      add  5 6 5       
+      lw   0 6 tree   
+      sw   5 6 stack   
+      lw   0 6 pos1    
+      add  5 6 5       
+      beq  0 0 comb      
+third lw   0 6 pos1    
+      add  3 6 3       
+coco  lw   0 6 neg1    
+      add  5 6 5         
+      lw   5 4 stack    load bef to $4  
+      add  5 6 5        stack - 1   
+      lw   5 2 stack      
+      add  5 6 5          
+      lw   5 1 stack     
+      jalr 4 7           
+cat   lw   0 6 pos1       
+      add  3 6 3         
+      lw   0 6 neg1       
+      add  5 6 5          
+      lw   5 4 stack     
+com .fill comb  
+n   .fill 3  
+r   .fill 2 
+neg1 .fill -1   
+pos1 .fill  1   
+coal .fill coco   
+conti  .fill coat  
+tree .fill third  
+dog  .fill cat    
+stack .fill 0    
