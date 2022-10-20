@@ -19,9 +19,12 @@ public class Parser {
     private int PC;
     private LinkedHashSet<String> instruction_set;
     private int[] Memory;
+
+    private int numMemory;
     
     public Parser(String src,int[] Memory){
         PC=0;//PC start at 0
+        numMemory = 0;
         String[] ins = {"noop","halt","jalr","add","nand","lw","sw","beq"};
         instruction_set = new LinkedHashSet<>(Arrays.asList(ins));
         this.tkz = new Tokenizer(src);
@@ -31,6 +34,8 @@ public class Parser {
         this.Memory = Memory;
         compute();
     }
+
+    
 
     private void compute() throws RuntimeException{
         parseProgram();
@@ -110,6 +115,7 @@ public class Parser {
         int i = 0;
         for(Expression expr:ASTtree){
           Memory[i++] =  expr.eval(bindings); 
+          numMemory++;
         }
 
     }
@@ -131,6 +137,11 @@ public class Parser {
         catch (NumberFormatException e){
             return false;
         }
+    }
+
+
+    public int getNumMemory() {
+        return numMemory;
     }
 
 }

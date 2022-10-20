@@ -63,7 +63,7 @@ public class Simulator {
 
     public void run(){
 
-        for (int i = 0; i < 700 && !instrReg.isHalt &&
+        for (int i = 0; i < 1000 && !instrReg.isHalt &&
              PC < memory.getMemory().length && PC >= 0 ; i++) {                 // only loops for 700 times , can increse loop times later
                                                                                 // (avoid run too much if it has bug about halting)
             
@@ -80,8 +80,8 @@ public class Simulator {
             simPr.printStage(PC,                                                // print stage before run
                              memory.getMemory(),                            
                              registers.getRegisters(),          
-                             memory.getNumMemory() 
-                                 + registers.getStackPointerValue());
+                             memory.getNumMemory() > registers.getStackPointerValue() 
+                                ? memory.getNumMemory() : registers.getStackPointerValue());
 
 
             // IMM GEN
