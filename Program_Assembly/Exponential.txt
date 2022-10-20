@@ -1,0 +1,37 @@
+        lw   0 6 base 
+        lw   0 7 exponent 
+        lw   0 2 sign 
+        lw   0 4 one temp1 = 1 
+        beq  0 7 dog if(exponent == 0) base ^ 0 
+        beq  7 4 cat if(exponent == 1) base ^ 1 
+        lw   0 5 base temp2 = base 
+expo    beq  7 4 done if(exponent == 1) end program 
+        lw   0 4 neg1 temp1 = -1 
+        add  4 7 exponent = exponent - 1 
+        lw   0 4 zero 
+        add  5 0 4 
+        lw   0 1 zero 
+        lw   0 3 one iterator = 1 
+mul     nand 4 3 5 (plier nand iterator) = temp2 
+        nand 5 5 5  (temp nand temp) = temp2 
+        beq  0 5 tree  if(temp == zero) go to L1 
+        add  1 6 1  result = result + cand
+tree    add  3 3 3  iterator = iterator + iterator 
+        add  6 6 6    cand = cand + cand   
+        beq  2 3 to   if(iterator == sign) go to exit 
+        beq  0 0 mul   jump to multiplication 
+to      lw   0 5 zero 
+        add  1 0 5  ******
+        lw   0 4 one temp1 = 1 
+        lw   0 6 base   reset base   
+        beq  0 0 expo jump to Exponention 
+cat     lw   0 1 base answer = base 
+        beq  0 0 done 
+dog     lw   0 1 one set answer = 1 
+done    halt  
+base .fill 3 
+exponent .fill 4 
+zero .fill 0 
+one .fill 1 
+neg1 .fill -1 
+sign .fill 1073741824     
