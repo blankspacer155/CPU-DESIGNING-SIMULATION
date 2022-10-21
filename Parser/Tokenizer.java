@@ -132,10 +132,24 @@ public class Tokenizer implements Token {
             field_count = 0;
         }
         else{ //label or number or symbolic addr
+            
+            if((!isNumber(subStr))&&(subStr.length()>6)){//check label length not greater than 6
+                throw new RuntimeException("label length is greater than 6");
+            }
             field_count++;
         }
         next = subStr;
 
+    }
+
+    public boolean isNumber(String s) throws NumberFormatException{ //check if string is number
+        try{
+            int parsed = Integer.parseInt(s);
+            return true;
+        }
+        catch (NumberFormatException e){
+            return false;
+        }
     }
 
     //check if ch is a-z,A-Z,_
