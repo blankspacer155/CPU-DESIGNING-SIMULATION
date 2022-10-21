@@ -1,4 +1,6 @@
 package Parser;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -41,6 +43,7 @@ public class Parser {
         parseProgram();
         if(tkz.hasNext()){
             throw new RuntimeException("Syntax Error");
+            
         }
 
     }
@@ -109,13 +112,28 @@ public class Parser {
     }
 
 
-    public void evauateAll(){   //start convert ASTtree to get machine language for each address
+    public void evaluateAll(){   //start convert ASTtree to get machine language for each address
         int i = 0;
         for(Expression expr:ASTtree){
           Memory[i++] =  expr.eval(bindings); 
           numMemory++;
         }
+        //write machine code file when finish evaluate
+        machineCodePrinter(Memory, numMemory);
 
+    }
+
+    public void machineCodePrinter(int[] memory,int numMemory){
+        try{
+            FileWriter writer = new FileWriter("machinecode.txt",false);
+            for(int i=0;i<numMemory;i++){
+                writer.write(memory[i]+"\n");
+            }
+            writer.close();
+        }
+        catch(IOException err){
+            System.out.println("Error on writing machinecode.txt");
+        }
     }
 
 

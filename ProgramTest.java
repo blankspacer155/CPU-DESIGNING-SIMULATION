@@ -17,7 +17,7 @@ public class ProgramTest {
 
 
         Parser p = new Parser(src,Memory);
-        p.evauateAll();
+        p.evaluateAll();
 
         
         // System.out.println(p.getNumMemory());

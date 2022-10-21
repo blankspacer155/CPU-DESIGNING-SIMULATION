@@ -12,7 +12,7 @@ public class ParserTest {
         String src =  "assembly_code.txt";
       int[] Memory = new int[100];
         Parser p = new Parser(src,Memory);
-        p.evauateAll();
+        p.evaluateAll();
       // System.out.println( p.prettyPrintAll());
 
         int i=0;
