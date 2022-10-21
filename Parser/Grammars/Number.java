@@ -10,14 +10,9 @@ public class Number implements Expression {
 
     @Override
     public int eval( Map<String, Expression> binding) {
-      //  System.out.println("nuber:"+value);
         return value;
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        s.append(Integer.toString(value));
-        
-    }
+
     
 }

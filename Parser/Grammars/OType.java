@@ -18,11 +18,9 @@ public class OType implements Expression {
     @Override
     public int eval( Map<String, Expression> binding) {
         if(ins.equals("noop")){
-      //      System.out.println("noop");
             op_S  = "111";
         }
         else{
-    //        System.out.println("halt");
             op_S = "110";
         }
         machine_S = op_S+"0000000000000000000000";
@@ -31,9 +29,4 @@ public class OType implements Expression {
         return machine_deci;
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        s.append(machine_deci+"("+machine_hex+")"+"\n");
-    }
-    
 }

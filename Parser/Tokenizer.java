@@ -14,12 +14,13 @@ public class Tokenizer implements Token {
 
     public Tokenizer(String file_name){
         this.src = fileToString(file_name);
-        pos = 0;
+        pos = 0;   //position of current character in string
         field_limit = 2; //  default reserve for label and ins
-        field_count = 0;
+        field_count = 0; 
         computeNext();
     }
 
+    //get all code in file and convert to string
     private String fileToString(String file_name){
         try(BufferedReader reader = new BufferedReader(new FileReader(file_name))){
             StringBuilder content = new StringBuilder();
@@ -40,35 +41,33 @@ public class Tokenizer implements Token {
 
     }
 
+
     private void computeNext(){
-        if(pos==src.length()){  
+        if(pos==src.length()){    //end of string
             next = "";
             return;
         }
         while(pos<src.length() && (src.charAt(pos)==' '||(field_count==field_limit&&src.charAt(pos)!='\n'))){  //skip blank space and comment
             next = " ";
-        // System.out.println("pos:"+pos+" field_count:"+field_count+" field_limit:"+field_limit);
-            pos++;
+            pos++;   //skip to next character
             return;
         }
-        if(src.charAt(pos)=='\n'){ //end line reset field limit and increase addr count
-          
-           // next = "\n";
+        if(src.charAt(pos)=='\n'){ //end of line, reset field limit and field count
            next = " ";
             field_limit=2; //set default
-            field_count=0;
+            field_count=0; //reset field count
             pos++;
             return;
         }
         
 
-        StringBuilder sub = new StringBuilder();
+        StringBuilder sub = new StringBuilder();   //for store a word
         char ch = src.charAt(pos);
 
         if(Character.isDigit(ch)){  //start number
             sub.append(ch);
             pos++;
-            for(;pos<src.length() && Character.isDigit(src.charAt(pos));pos++){
+            for(;pos<src.length() && Character.isDigit(src.charAt(pos));pos++){  //add next character(a digit of number) to sub until end of this number
                 sub.append(src.charAt(pos));
             }
         }
@@ -76,7 +75,7 @@ public class Tokenizer implements Token {
         {
             sub.append(ch);
             pos++;
-            for(;pos<src.length() && Character.isDigit(src.charAt(pos));pos++){
+            for(;pos<src.length() && Character.isDigit(src.charAt(pos));pos++){ //same as number
                 sub.append(src.charAt(pos));
             }
         }
@@ -111,9 +110,10 @@ public class Tokenizer implements Token {
             throw  new RuntimeException("Unknown character: >"+ch+"<");
         }
 
-        //check syntax
-        
-        //next = sub.toString();
+       
+        //identify instruction and set field limit for each type of instruction
+        //if current word is not instruction then it count as field
+        //default field limit is 2, at start of each line it must be less than 2 word to found an instruction 
         String subStr = sub.toString();
         if(subStr.equals("noop")||subStr.equals("halt")){
             field_limit=0;
@@ -155,7 +155,7 @@ public class Tokenizer implements Token {
         while(next.equals(" ")){
             computeNext();
         }
-     //   System.out.println("peek:"+next);
+   
         return next;
     }
     /**Returns true if the next token is s **/
@@ -173,7 +173,6 @@ public class Tokenizer implements Token {
             computeNext();
         }
         String result = next;
-   //     System.out.println("consume:"+next);
         if(pos<src.length()){
             computeNext();
             return result;

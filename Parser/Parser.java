@@ -24,19 +24,19 @@ public class Parser {
     
     public Parser(String src,int[] Memory){
         PC=0;//PC start at 0
-        numMemory = 0;
+        numMemory = 0;  //count how many memory is used
         String[] ins = {"noop","halt","jalr","add","nand","lw","sw","beq"};
-        instruction_set = new LinkedHashSet<>(Arrays.asList(ins));
+        instruction_set = new LinkedHashSet<>(Arrays.asList(ins));  //for compare with word get form tokenizer
         this.tkz = new Tokenizer(src);
-        bindings = new LinkedHashMap<>();
+        bindings = new LinkedHashMap<>();  //pair of label and its location PC
         grammarFactory = GrammarFactory.getInstance();
-        ASTtree = new LinkedList<>();
+        ASTtree = new LinkedList<>();  //abstract syntax tree
         this.Memory = Memory;
         compute();
     }
 
     
-
+    //start parsing
     private void compute() throws RuntimeException{
         parseProgram();
         if(tkz.hasNext()){
@@ -46,11 +46,11 @@ public class Parser {
     }
 
     private void parseProgram() {
-        while(!tkz.peek("")){
-            ASTtree.add(parseLine());
+        while(!tkz.peek("")){   
+            ASTtree.add(parseLine());  //parse 1 line and add it to ASTtree repeat until end of assembly code
         }
     }
-    private Expression parseIns() {
+    private Expression parseIns() {  //parse instruction
         PC++; //PC=PC+1
         Expression expr;
         String ins = tkz.consume();
@@ -66,7 +66,7 @@ public class Parser {
         }
         else if(ins.equals(".fill")){
             String field = tkz.consume();
-            if(isNumber(field)){
+            if(isNumber(field)){ //identify field is number or symbolic addr
                 expr = grammarFactory.getFill(grammarFactory.getNumber(Integer.parseInt(field)));
             }
             else{
@@ -91,16 +91,14 @@ public class Parser {
         return expr;
     }
 
-    private Expression parseLine() {
+    private Expression parseLine() { // a line can start with label or instruction
        
         Expression expr;
         if(instruction_set.contains(tkz.peek())){ //start with instruction (not include .fill)
              expr =  parseIns();
         }
         else { //start with label
-            String label  = tkz.consume();
-          //  System.out.println("label :"+label);
-            
+            String label  = tkz.consume();     
             if(bindings.containsKey(label)){//check duplicate label
                 throw new RuntimeException("duplicate label");
             }
@@ -111,7 +109,7 @@ public class Parser {
     }
 
 
-    public void evauateAll(){
+    public void evauateAll(){   //start convert ASTtree to get machine language for each address
         int i = 0;
         for(Expression expr:ASTtree){
           Memory[i++] =  expr.eval(bindings); 
@@ -119,17 +117,9 @@ public class Parser {
         }
 
     }
-    public String prettyPrintAll(){
-        StringBuilder s = new StringBuilder();
-        for(Expression expr:ASTtree){
-          expr.prettyPrint(s);
-          }
-        return s.toString();
 
-        
-    }
 
-    public boolean isNumber(String s) throws NumberFormatException{
+    public boolean isNumber(String s) throws NumberFormatException{ //check if string is number
         try{
             int parsed = Integer.parseInt(s);
             return true;
@@ -140,7 +130,7 @@ public class Parser {
     }
 
 
-    public int getNumMemory() {
+    public int getNumMemory() {  // return number of memory used
         return numMemory;
     }
 

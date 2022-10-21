@@ -33,11 +33,9 @@ public class RType implements Expression {
         int d_value = rd.eval(binding);
         
         if(ins.equals("add")){
-     //       System.out.println("add rA:"+A_value+" rB:"+B_value+" rd:"+d_value);
             op_S = "000";
         }
         else { //nand
-    //        System.out.println("nand rA:"+A_value+" rB:"+B_value+" rd:"+d_value);
             op_S = "001";
         }
        
@@ -50,16 +48,8 @@ public class RType implements Expression {
         machine_deci=sbc.convertToDeci(machine_S);
         machine_hex = sbc.convertToHex(machine_deci);
 
-     //   System.out.println("binary string:"+machine_S+" decimal:"+machine_deci+" hex:"+machine_hex);
-
         return machine_deci;
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        
-        s.append(machine_deci+"("+machine_hex+")"+"\n");
-        
-    }
     
 }

@@ -23,7 +23,6 @@ public class JType implements Expression {
     public int eval( Map<String, Expression> binding) {
         int A_value = rA.eval(binding);
         int B_value = rB.eval(binding);
-       // System.out.println("jalr rA:"+A_value+" rB:"+B_value);
         op_S = "101";
         rA_S = sbc.convertToBinStr(A_value, 3, "0");
         rB_S = sbc.convertToBinStr(B_value, 3, "0");
@@ -34,9 +33,6 @@ public class JType implements Expression {
         return machine_deci;
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        s.append(machine_deci+"("+machine_hex+")"+"\n");
-    }
+
     
 }

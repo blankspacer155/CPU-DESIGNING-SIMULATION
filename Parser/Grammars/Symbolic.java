@@ -15,22 +15,13 @@ public class Symbolic implements Expression{
         if(binding==null){
             throw new RuntimeException("undefined label");
         }
-    //    if(binding.get(label)==null){  //init first time ever seen
-    //        binding.put(label,new Number(0));
-    //     }
 
-        int value = binding.get(label).eval(binding);
-       // System.out.println("symbolic:"+label+" ="+value);
+        int value = binding.get(label).eval(binding); //get value from label name
        return value;
     }
     public void set(Map<String,Integer> binding,int value){
         binding.put(label,value);
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        // TODO Auto-generated method stub
-        
-    }
     
 }

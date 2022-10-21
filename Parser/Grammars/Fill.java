@@ -12,13 +12,8 @@ public class Fill implements Expression {
     @Override
     public int eval( Map<String, Expression> binding) {
          value = field.eval(binding);
-      //  System.out.println("fill :"+value);
         return value;
     }
 
-    @Override
-    public void prettyPrint(StringBuilder s) {
-        s.append(value+"("+"im lazy to convert"+")"+"\n");
-    }
     
 }
