@@ -3,7 +3,6 @@ package Simulator;
 import Simulator.SubPart.Gate;
 
 
-
 public class ALU {
 
     // inputs
@@ -40,7 +39,7 @@ public class ALU {
     }
 
 
-    /** reset all params, constuctor call this
+    /** reset all params, constructor call this
      * 
      */
     public void reset(){
@@ -64,7 +63,7 @@ public class ALU {
 
     /** set inputs of ALU
      * 
-     *  @param in1 first intput from RegisterA
+     *  @param in1 first input from RegisterA
      * 
      *  @param in2 second input from RegisterB or ImmGen
      */

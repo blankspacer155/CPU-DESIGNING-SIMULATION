@@ -19,6 +19,7 @@ public class Simulator {
     protected ImmGen immGen;
 
     protected SimulationPrinter simPr;
+    protected SimulationReader simRd;
 
     public Simulator(){
         PC = 0;
@@ -48,16 +49,18 @@ public class Simulator {
         immGen = new ImmGen();
 
         simPr = new SimulationPrinter();
+        simRd = new SimulationReader();
     }
 
 
     /** set machine code for running
-     * 
-     * @param machineCode
-     * @param numMemory number of line of memory
      */
-    public void setMachineCode(int[] machineCode, int numMemory){
-        memory = new Memory(machineCode, numMemory);
+    public void setMachineCode(){
+
+        int[] Memory = new int[1000];
+        simRd.readProgram(Memory);
+
+        memory = new Memory(Memory, simRd.getNumMemory());
     }
 
 

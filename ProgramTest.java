@@ -1,10 +1,5 @@
 import Simulator.Simulator;
 
-import java.util.Map;
-
-import Parser.Grammars.Expression;
-
-import java.util.LinkedHashMap;
 import Parser.Parser;
 
 public class ProgramTest {
@@ -20,19 +15,17 @@ public class ProgramTest {
         p.evaluateAll();
 
         
-        // System.out.println(p.getNumMemory());
-        //  System.out.println( p.prettyPrintAll());
-        int i=0;
-        for(int ins:Memory){
-            System.out.println("addr["+(i++)+"] :"+ins);
-        }
+        // // System.out.println(p.getNumMemory());
+        // //  System.out.println( p.prettyPrintAll());
+        
+        // int i=0;
+        // for(int ins:Memory){
+        //     System.out.println("addr["+(i++)+"] :"+ins);
+        // }
 
         Simulator sim = new Simulator();
-        sim.setMachineCode(Memory, p.getNumMemory());
+        sim.setMachineCode();
         sim.run();
-
-
-
 
     }
     
