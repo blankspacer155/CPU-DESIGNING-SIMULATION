@@ -24,7 +24,7 @@ public class Parser {
 
     private int numMemory;
     
-    public Parser(String src,int[] Memory){
+    public Parser(String src){
         PC=0;//PC start at 0
         numMemory = 0;  //count how many memory is used
         String[] ins = {"noop","halt","jalr","add","nand","lw","sw","beq"};
@@ -33,7 +33,7 @@ public class Parser {
         bindings = new LinkedHashMap<>();  //pair of label and its location PC
         grammarFactory = GrammarFactory.getInstance();
         ASTtree = new LinkedList<>();  //abstract syntax tree
-        this.Memory = Memory;
+        this.Memory = new int[65536];
         compute();
     }
 

@@ -19,7 +19,7 @@ public class SimulatorTest {
             -1,
             2
         };
-        sim.setMachineCode(machcode, 10);
+        sim.setMachineCode();
         sim.run();
 
     }

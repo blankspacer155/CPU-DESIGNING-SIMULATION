@@ -6,12 +6,9 @@ public class ProgramTest {
 
     public static void main(String[] args) {
 
-        String src = "Program_Assembly/Multiplication.txt";  
+        String src = "Program_Assembly/Combination.txt";  
 
-        int[] Memory = new int[1000];
-
-
-        Parser p = new Parser(src,Memory);
+        Parser p = new Parser(src);
         p.evaluateAll();
 
         

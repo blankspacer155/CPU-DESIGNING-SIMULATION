@@ -57,7 +57,7 @@ public class Simulator {
      */
     public void setMachineCode(){
 
-        int[] Memory = new int[1000];
+        int[] Memory = new int[65536];
         simRd.readProgram(Memory);
 
         memory = new Memory(Memory, simRd.getNumMemory());
@@ -66,7 +66,7 @@ public class Simulator {
 
     public void run(){
 
-        for (int i = 0; i < 1000 && !instrReg.isHalt &&
+        for (int i = 0; i < 65536 && !instrReg.isHalt &&
              PC < memory.getMemory().length && PC >= 0 ; i++) {                 // only loops for 700 times , can increse loop times later
                                                                                 // (avoid run too much if it has bug about halting)
             
