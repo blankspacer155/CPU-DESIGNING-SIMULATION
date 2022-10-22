@@ -1,6 +1,6 @@
 # COMPUTER ARCHITECTURE PROJECT - 1
 
-To run this program, there is an example of running in ProgramTest.java
+## To run this program, there is an example of running in ProgramTest.java
  
  
  This project compries 3 parts 
