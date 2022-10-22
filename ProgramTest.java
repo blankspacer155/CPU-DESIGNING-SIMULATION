@@ -8,22 +8,10 @@ public class ProgramTest {
 
         String src = "Program_Assembly/Combination.txt";  
 
-        Parser p = new Parser(src);
-        // p.evaluateAll();
-
-        
-        // // System.out.println(p.getNumMemory());
-        // //  System.out.println( p.prettyPrintAll());
-        
-        // int i=0;
-        // for(int ins:Memory){
-        //     System.out.println("addr["+(i++)+"] :"+ins);
-        // }
-
+        new Parser(src);
         Simulator sim = new Simulator();
         sim.setMachineCode();
         sim.run();
-
     }
     
 }

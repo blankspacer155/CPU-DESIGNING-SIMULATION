@@ -10,13 +10,9 @@ oat add  3 3  3  iterator = iterator + iterator
     add  6 6  6    cand = cand + cand 
     beq  2 3  done   if(iterator == sign) go to exit 
     beq  0 0  mul   jump to multiplication  
-done  halt
-    
+done  halt   
 sign .fill 1073741824   
 multi .fill mul
 one .fill 1 
-mcand  .fill 32766
-mplier .fill 10383      
-
-
-
+mcand  .fill 251
+mplier .fill 318      

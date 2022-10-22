@@ -14,7 +14,7 @@ int combination(int n, int r){
 }
 
 int main(){
-    std::cout << combination(3,0);
+    std::cout << combination(7,2);
     return combination(3,0);    
 
 }

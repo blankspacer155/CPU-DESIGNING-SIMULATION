@@ -8,10 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.management.RuntimeErrorException;
-
 import Parser.Grammars.*;
-import Parser.Grammars.Number;
 
 public class Parser {
     private Tokenizer tkz;
@@ -140,7 +137,7 @@ public class Parser {
 
     public boolean isNumber(String s) throws NumberFormatException{ //check if string is number
         try{
-            int parsed = Integer.parseInt(s);
+            Integer.parseInt(s);
             return true;
         }
         catch (NumberFormatException e){

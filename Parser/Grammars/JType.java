@@ -10,7 +10,6 @@ public class JType implements Expression {
     private String rA_S;
     private String rB_S;
     private int machine_deci;
-    private String machine_hex;
     private StringBaseConverter sbc;
 
     public JType(Expression rA,Expression rB){
@@ -29,7 +28,6 @@ public class JType implements Expression {
 
         machine_S = op_S+rA_S+rB_S+"0000000000000000";
         machine_deci =  sbc.convertToDeci(machine_S);
-        machine_hex = sbc.convertToHex(machine_deci);
         return machine_deci;
     }
 

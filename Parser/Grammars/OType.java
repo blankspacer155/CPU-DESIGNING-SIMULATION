@@ -7,7 +7,6 @@ public class OType implements Expression {
     private String op_S;
     private String machine_S;
     private int machine_deci;
-    private String machine_hex;
     private StringBaseConverter sbc;
 
     public OType(String ins){
@@ -25,7 +24,6 @@ public class OType implements Expression {
         }
         machine_S = op_S+"0000000000000000000000";
         machine_deci = sbc.convertToDeci(machine_S);
-        machine_hex = sbc.convertToHex(machine_deci);
         return machine_deci;
     }
 

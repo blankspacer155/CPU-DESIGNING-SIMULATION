@@ -1,5 +1,5 @@
         lw   0 6 base load base in $6
-        lw   0 7 exponent load exponent in $7
+        lw   0 7 exp load exponent in $7
         lw   0 2 sign load sign in $2
         lw   0 4 one temp1 = 1 
         beq  0 7 dog if(exponent == 0) base ^ 0 
@@ -29,8 +29,8 @@ cat     lw   0 1 base answer = base
         beq  0 0 done 
 dog     lw   0 1 one set answer = 1 
 done    halt  end program
-base .fill 3 
-exponent .fill 4 
+base .fill 4 
+exp .fill 5
 zero .fill 0 
 one .fill 1 
 neg1 .fill -1 

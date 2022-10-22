@@ -37,8 +37,8 @@ stop   halt end of program
 
 
 com .fill comb 
-n   .fill 7 
-r   .fill 2 
+n   .fill 7
+r   .fill 5
 neg1 .fill -1  
 pos1 .fill  1   
 one  .fill first

@@ -1,6 +1,5 @@
 package Parser;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -144,7 +143,7 @@ public class Tokenizer implements Token {
 
     public boolean isNumber(String s) throws NumberFormatException{ //check if string is number
         try{
-            int parsed = Integer.parseInt(s);
+            Integer.parseInt(s);
             return true;
         }
         catch (NumberFormatException e){

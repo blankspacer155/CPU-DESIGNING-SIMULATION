@@ -14,7 +14,6 @@ public class IType implements Expression {
     private String offset_S;
     private String machine_S;
     private int machine_deci;
-    private String machine_hex;
     private StringBaseConverter sbc;
 
 
@@ -66,7 +65,6 @@ public class IType implements Expression {
         machine_S = op_S+rA_S+rB_S+offset_S;
 
         machine_deci=sbc.convertToDeci(machine_S);
-        machine_hex = sbc.convertToHex(machine_deci);
 
         return machine_deci;
     }
