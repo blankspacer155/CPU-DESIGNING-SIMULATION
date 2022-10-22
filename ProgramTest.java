@@ -9,7 +9,7 @@ public class ProgramTest {
         String src = "Program_Assembly/Combination.txt";  
 
         Parser p = new Parser(src);
-        p.evaluateAll();
+        // p.evaluateAll();
 
         
         // // System.out.println(p.getNumMemory());

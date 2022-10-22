@@ -35,6 +35,7 @@ public class Parser {
         ASTtree = new LinkedList<>();  //abstract syntax tree
         this.Memory = new int[65536];
         compute();
+        evaluateAll();
     }
 
     
