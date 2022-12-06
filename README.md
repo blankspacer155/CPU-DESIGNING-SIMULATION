@@ -3,11 +3,12 @@
 ## To run this program, there is an example of running in ProgramTest.java
  
  
-## Project Report: https://docs.google.com/document/d/1_SR4gGQtbxQVp33Hhoeip7o_ncQlzdt8oisuajAGoPg/edit?usp=sharing
+## Project Report: 
+https://docs.google.com/document/d/1_SR4gGQtbxQVp33Hhoeip7o_ncQlzdt8oisuajAGoPg/edit?usp=sharing
 
 
  
- This project compries 3 parts 
+ This project contains 3 parts 
 
 1.       program which convert assembly language program to machine language 
 
